@@ -1,0 +1,8 @@
+node_modules
+coverage
+*.log
+.vscode
+.idea
+dist
+docs
+testing
