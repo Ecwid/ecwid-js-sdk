@@ -1,0 +1,66 @@
+{
+  "name": "ecwid-headless-sdk",
+  "version": "0.1.0",
+  "description": "Lightweight SDK library to access Ecwid API functions.",
+  "author": "Ecwid",
+  "license": "Apache-2.0",
+  "keywords": [
+    "ecwid",
+    "sdk",
+    "api"
+  ],
+  "main": "dist/ecommerce.js",
+  "types": "dist/types/ecommerce.d.ts",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+    "build": "tsc && webpack",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "jsdom",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/jest-when": "^2.7.3",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.4",
+    "jest-when": "^3.3.1",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.4",
+    "webpack": "^5.39.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

@@ -3,6 +3,7 @@ coverage
 *.log
 .vscode
 .idea
+.DS_Store
 dist
 docs
 testing
