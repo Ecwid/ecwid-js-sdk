@@ -2,9 +2,10 @@ import { Cart } from '../type/cart';
 import CartConverter from '../converter/cart-converter';
 
 /**
- * CartService Class.
+ * Ecommerce SDK cart service. Contains cart operations.
+ * @class
  */
-export default class CartService {
+class CartService {
   private readonly DEFAULT_STORE_LOCATION_PATH = 'store';
 
   private readonly LOCAL_STORAGE_KEY = 'PSecwid__2PScart';
@@ -22,6 +23,7 @@ export default class CartService {
 
   /**
    * Get cart data in current store.
+   * @returns {Promise<Cart>} Promise of current {@link Cart} data.
    */
   get(): Promise<Cart> {
     if (!window || !window.localStorage) {
@@ -38,6 +40,12 @@ export default class CartService {
 
   /**
    * Navigate to checkout page with current cart data.
+   * @param {string} storeLocationPath - Relative URL path to store page.
+   * In case argument is provided, it will be used for checkout URL composition.
+   * In case argument is not provided and initial {@link StoreOptions} contains storeLocationPath,
+   * path from {@link StoreOptions} will be used for checkout URL composition.
+   * In case argument is not provided and initial {@link StoreOptions} does not contain storeLocationPath,
+   * default path '/store' will be used for checkout URL composition.
    */
   goToCheckout(storeLocationPath?: string) {
     if (!window || !window.location) {
@@ -51,6 +59,7 @@ export default class CartService {
 
   /**
    * Converts store location path to unified format without leading and trailing slash.
+   * @private
    */
   private unifyStoreLocationPath(storeLocationPath: string): string {
     return storeLocationPath.replace(/(^\/)|(\/$)/g, '');
@@ -64,3 +73,5 @@ export default class CartService {
     return this.createCartPromise({} as Cart);
   }
 }
+
+export default CartService;

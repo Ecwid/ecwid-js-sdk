@@ -5,7 +5,7 @@ import { StoreOptions } from './type/init';
 * Ecommerce SDK entry point.
 * @class
 */
-export default class Ecommerce {
+class Ecommerce {
   readonly cart: CartService;
 
   /**
@@ -20,3 +20,5 @@ export default class Ecommerce {
     this.cart = new CartService(storeOptions.storeLocationPath);
   }
 }
+
+export default Ecommerce;
