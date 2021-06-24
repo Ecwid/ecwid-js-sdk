@@ -1,5 +1,5 @@
 export interface LocalStorageOrderItem {
-  id: number;
+  productId: number;
   sku: string;
   name: string;
   price: number;

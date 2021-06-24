@@ -17,7 +17,7 @@ export default class CartConverter {
   private toCartItem(localStorageOrderItem: LocalStorageOrderItem): CartItem {
     return {
       product: {
-        id: localStorageOrderItem.id,
+        id: localStorageOrderItem.productId,
         sku: localStorageOrderItem.sku,
         name: localStorageOrderItem.name,
         price: localStorageOrderItem.price,

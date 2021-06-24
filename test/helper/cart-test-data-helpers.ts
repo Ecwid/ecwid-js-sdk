@@ -7,14 +7,14 @@ export function prepareLocalStorageCartData(): LocalStorageCart {
     order: {
       items: [
         {
-          id: 1000001,
+          productId: 1000001,
           sku: '00001',
           name: 'Example1',
           price: 99.99,
           quantity: 1,
         },
         {
-          id: 1000002,
+          productId: 1000002,
           sku: '00002',
           name: 'Example2',
           price: 77.99,
