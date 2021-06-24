@@ -1,0 +1,11 @@
+{
+  "entries": [
+      {
+          "filePath": "./src/ecommerce.ts",
+          "outFile": "./dist/ecommerce.d.ts",
+          "output": {
+            "noBanner": true
+          }
+      }
+  ]
+}

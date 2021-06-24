@@ -44,8 +44,8 @@ class CartService {
    * In case argument is provided, it will be used for checkout URL composition.
    * In case argument is not provided and initial {@link StoreOptions} contains storeLocationPath,
    * path from {@link StoreOptions} will be used for checkout URL composition.
-   * In case argument is not provided and initial {@link StoreOptions} does not contain storeLocationPath,
-   * default path '/store' will be used for checkout URL composition.
+   * In case argument is not provided and initial {@link StoreOptions} does not contain
+   * storeLocationPath, default path '/store' will be used for checkout URL composition.
    */
   goToCheckout(storeLocationPath?: string) {
     if (!window || !window.location) {

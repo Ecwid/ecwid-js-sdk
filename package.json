@@ -10,15 +10,18 @@
     "api"
   ],
   "main": "dist/ecommerce.js",
-  "types": "dist/types/ecommerce.d.ts",
+  "types": "dist/ecommerce.d.ts",
   "repository": {
     "type": "git",
     "url": ""
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
+    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-    "build": "tsc && webpack",
+    "build": "tsc && webpack && ./node_modules/.bin/dts-bundle-generator --config dts-bundle-generator.json",
     "test": "jest --coverage",
     "doc": "jsdoc -c jsdoc.json"
   },
@@ -58,6 +61,7 @@
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "better-docs": "^2.3.2",
+    "dts-bundle-generator": "^5.9.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",

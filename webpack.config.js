@@ -1,30 +1,19 @@
 const path = require( 'path' );
 
 module.exports = {
-
   target: 'web',
-
-  // bundling mode
   mode: 'production',
-
-  // entry files
   entry: './src/ecommerce.ts',
-
-  // output bundles (location)
   output: {
-      path: path.resolve( __dirname, 'dist/bundle' ),
+      path: path.resolve( __dirname, 'dist' ),
       filename: 'ecommerce.js',
       library: 'Ecommerce',
       libraryTarget: 'umd',
       libraryExport: 'default'
   },
-
-  // file resolutions
   resolve: {
       extensions: [ '.ts', '.tsx', '.js' ],
   },
-
-  // loaders
   module: {
       rules: [
           {

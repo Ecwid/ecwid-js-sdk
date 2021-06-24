@@ -12,8 +12,8 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
+    "declarationDir": "build/types",
+    "outDir": "build/lib",
   },
   "include": [
     "src"

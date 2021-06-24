@@ -1,7 +1,7 @@
-import Ecommers from '../src/ecommerce';
+import Ecommerce from '../src/ecommerce';
 
-test('Ecommers initialization', () => {
+test('Ecommerce initialization', () => {
   const storeOptions = { storeId: 42 };
-  const ecommers = new Ecommers(storeOptions);
-  expect(ecommers.cart).toBeDefined();
+  const ecommerce = new Ecommerce(storeOptions);
+  expect(ecommerce.cart).toBeDefined();
 });
