@@ -20,6 +20,8 @@ npm install @ecwid/sdk
 ### SDK iniialization
 
 ```javascript
+import Ecommerce from "@ecwid/sdk";
+
 const ecommerce = new Ecommerce({
 	storeId: 1002,
 	storeLocationPath: '/store' // optional

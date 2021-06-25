@@ -5,19 +5,19 @@ export interface Product {
   /**
    * Internal unique product ID.
    */
-  id: number;
+  readonly id: number;
   /**
    * Product SKU.
    */
-  sku: string;
+  readonly sku: string;
   /**
    * Product name.
    */
-  name: string;
+  readonly name: string;
   /**
    * Product price.
    */
-  price: number;
+  readonly price: number;
 }
 
 /**
@@ -27,11 +27,11 @@ export interface CartItem {
   /**
    * The map of product properties (variation properties, if the variation is added to cart).
    */
-  product: Product;
+  readonly product: Product;
   /**
    * Quantity of the given product variety in cart.
    */
-  quantity: number;
+  readonly quantity: number;
 }
 
 /**
@@ -41,13 +41,13 @@ export interface Cart {
   /**
    * Cart ID you can use later in the cart service.
    */
-  cartId: string;
+  readonly cartId: string;
   /**
    * Enlists all items currently present in customer’s cart.
    */
-  items: CartItem[];
+  readonly items: CartItem[];
   /**
    * Total number of product varieties in cart
    */
-  productsQuantity: number;
+  readonly productsQuantity: number;
 }

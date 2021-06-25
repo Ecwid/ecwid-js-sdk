@@ -3,14 +3,13 @@ import { LocalStorageCart, LocalStorageOrderItem } from '../type/local-storage';
 
 export default class CartConverter {
   toCart(localStorageCart: LocalStorageCart): Cart {
-    const cartItems: CartItem[] = [];
-    localStorageCart.order.items.forEach((orderItem) => {
-      cartItems.push(this.toCartItem(orderItem));
-    });
+    const cartItems = localStorageCart.order.items.map(this.toCartItem);
+    const productsQuantity = cartItems
+      .reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
     return {
       cartId: localStorageCart.cartId,
       items: cartItems,
-      productsQuantity: this.calculateProductsQuantity(cartItems),
+      productsQuantity,
     };
   }
 
@@ -24,13 +23,5 @@ export default class CartConverter {
       },
       quantity: localStorageOrderItem.quantity,
     };
-  }
-
-  private calculateProductsQuantity(cartItems: CartItem[]): number {
-    let productsQuantity = 0;
-    cartItems.forEach((cartItem) => {
-      productsQuantity += cartItem.quantity;
-    });
-    return productsQuantity;
   }
 }

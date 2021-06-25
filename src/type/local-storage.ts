@@ -1,16 +1,16 @@
 export interface LocalStorageOrderItem {
-  productId: number;
-  sku: string;
-  name: string;
-  price: number;
-  quantity: number;
+  readonly productId: number;
+  readonly sku: string;
+  readonly name: string;
+  readonly price: number;
+  readonly quantity: number;
 }
 
 export interface LocalStorageOrder {
-  items: LocalStorageOrderItem[];
+  readonly items: LocalStorageOrderItem[];
 }
 
 export interface LocalStorageCart {
-  cartId: string;
-  order: LocalStorageOrder;
+  readonly cartId: string;
+  readonly order: LocalStorageOrder;
 }
