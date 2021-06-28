@@ -12,8 +12,9 @@ const config = [
       compact: true
     },
     plugins: [
-      typescript(),
-      uglify()
+      typescript()
+      // typescript(),
+      // uglify()
     ]
   },
   {

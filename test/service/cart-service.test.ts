@@ -27,63 +27,63 @@ describe('Go to checkout tests', () => {
   });
 
   test('Go to checkout when default store location path was not set', () => {
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     cartService.goToCheckout();
-    expect(window.location.href).toBe('http://localhost/store/cart');
+    expect(window.location.href).toBe('http://localhost/store#!/~/cart');
   });
 
   test('Go to checkout when default store location path was not set with custom store location path', () => {
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     cartService.goToCheckout('/products');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('/products/');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('products');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('products/');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
   });
 
   test('Go to checkout when default store location path was set', () => {
-    let cartService = new CartService('/default-store-location');
+    let cartService = new CartService(1002, '/default-store-location');
     cartService.goToCheckout();
-    expect(window.location.href).toBe('http://localhost/default-store-location/cart');
+    expect(window.location.href).toBe('http://localhost/default-store-location#!/~/cart');
 
-    cartService = new CartService('/default-store-location/');
+    cartService = new CartService(1002, '/default-store-location/');
     cartService.goToCheckout();
-    expect(window.location.href).toBe('http://localhost/default-store-location/cart');
+    expect(window.location.href).toBe('http://localhost/default-store-location#!/~/cart');
 
-    cartService = new CartService('default-store-location');
+    cartService = new CartService(1002, 'default-store-location');
     cartService.goToCheckout();
-    expect(window.location.href).toBe('http://localhost/default-store-location/cart');
+    expect(window.location.href).toBe('http://localhost/default-store-location#!/~/cart');
 
-    cartService = new CartService('default-store-location/');
+    cartService = new CartService(1002, 'default-store-location/');
     cartService.goToCheckout();
-    expect(window.location.href).toBe('http://localhost/default-store-location/cart');
+    expect(window.location.href).toBe('http://localhost/default-store-location#!/~/cart');
   });
 
   test('Go to checkout when default store location path was set with custom store location path', () => {
-    const cartService = new CartService('/default-store-location');
+    const cartService = new CartService(1002, '/default-store-location');
     cartService.goToCheckout('/products');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('/products/');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('products');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
 
     cartService.goToCheckout('products/');
-    expect(window.location.href).toBe('http://localhost/products/cart');
+    expect(window.location.href).toBe('http://localhost/products#!/~/cart');
   });
 
   test('Go to checkout without location in DOM environment, nothing should heppen', () => {
     // @ts-ignore
     const windowSpy = jest.spyOn(window, 'window', 'get').mockImplementation(() => ({ location: undefined }));
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     cartService.goToCheckout();
     expect(window.location).toBe(undefined);
     windowSpy.mockRestore();
@@ -92,7 +92,7 @@ describe('Go to checkout tests', () => {
 
 describe('Get cart tests', () => {
   test('Get cart when there is no record in local storage', () => {
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     const cart = cartService.get();
     expect(cart).toEqual(Promise.resolve({}));
   });
@@ -100,14 +100,14 @@ describe('Get cart tests', () => {
   test('Get cart when there is no local storage in DOM environment', () => {
     // @ts-ignore
     const windowSpy = jest.spyOn(window, 'window', 'get').mockImplementation(() => ({ localStorage: undefined }));
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     const cart = cartService.get();
     expect(cart).toEqual(Promise.resolve({}));
     windowSpy.mockRestore();
   });
 
   test('Get cart positive', () => {
-    const localStorageCartKey = 'PSecwid__2PScart';
+    const localStorageCartKey = 'PSecwid__1002PScart';
     const localStorageCart = prepareLocalStorageCartData();
     global.localStorage.setItem(localStorageCartKey, JSON.stringify(localStorageCart));
 
@@ -117,7 +117,7 @@ describe('Get cart tests', () => {
       .calledWith(localStorageCart)
       .mockReturnValue(expectedCart);
 
-    const cartService = new CartService();
+    const cartService = new CartService(1002);
     const cartPromise = cartService.get();
     mocked(CartConverter, true).mockClear();
     return cartPromise.then((cart) => {

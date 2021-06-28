@@ -1,5 +1,6 @@
 import { Cart } from '../type/cart';
 import CartConverter from '../converter/cart-converter';
+import { getCartKey } from '../helper/local-storage-helpers';
 
 /**
  * Ecommerce SDK cart service. Contains cart operations.
@@ -8,13 +9,14 @@ import CartConverter from '../converter/cart-converter';
 class CartService {
   private readonly DEFAULT_STORE_LOCATION_PATH = 'store';
 
-  private readonly LOCAL_STORAGE_KEY = 'PSecwid__2PScart';
-
   private readonly cartConverter: CartConverter;
+
+  private readonly localStorageCartKey: string;
 
   private readonly defaultStoreLocationPath: string;
 
-  constructor(storeLocationPath?: string) {
+  constructor(storeId: number, storeLocationPath?: string) {
+    this.localStorageCartKey = getCartKey(storeId);
     this.defaultStoreLocationPath = storeLocationPath
       ? this.unifyStoreLocationPath(storeLocationPath)
       : this.DEFAULT_STORE_LOCATION_PATH;
@@ -29,7 +31,7 @@ class CartService {
     if (!window || !window.localStorage) {
       return this.createEmptyCartPromise();
     }
-    const cartRecord = window.localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    const cartRecord = window.localStorage.getItem(this.localStorageCartKey);
     if (cartRecord == null) {
       return this.createEmptyCartPromise();
     }
@@ -54,7 +56,7 @@ class CartService {
     const effectiveStoreLocationPath = storeLocationPath
       ? this.unifyStoreLocationPath(storeLocationPath)
       : this.defaultStoreLocationPath;
-    window.location.href = `${window.location.origin}/${effectiveStoreLocationPath}/cart`;
+    window.location.href = `${window.location.origin}/${effectiveStoreLocationPath}#!/~/cart`;
   }
 
   /**

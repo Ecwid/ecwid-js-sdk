@@ -1,5 +1,6 @@
 import CartService from './service/cart-service';
 import { StoreOptions } from './type/init';
+import EventService from './service/event-service';
 
 /**
 * Ecommerce SDK entry point.
@@ -7,6 +8,8 @@ import { StoreOptions } from './type/init';
 */
 class Ecommerce {
   readonly cart: CartService;
+
+  readonly events: EventService;
 
   /**
    * @constructs Ecommerce
@@ -17,7 +20,8 @@ class Ecommerce {
    * Optional, default value '/store'.
    */
   constructor(storeOptions: StoreOptions) {
-    this.cart = new CartService(storeOptions.storeLocationPath);
+    this.cart = new CartService(storeOptions.storeId, storeOptions.storeLocationPath);
+    this.events = new EventService(storeOptions.storeId, this.cart);
   }
 }
 
