@@ -17,7 +17,7 @@ class Ecommerce {
    * Optional, default value '/store'.
    */
   constructor(storeOptions: StoreOptions) {
-    this.cart = new CartService(storeOptions.storeLocationPath);
+    this.cart = new CartService(storeOptions.storeId, storeOptions.storeLocationPath);
   }
 }
 

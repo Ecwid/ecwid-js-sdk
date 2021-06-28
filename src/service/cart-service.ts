@@ -8,13 +8,14 @@ import CartConverter from '../converter/cart-converter';
 class CartService {
   private readonly DEFAULT_STORE_LOCATION_PATH = 'store';
 
-  private readonly LOCAL_STORAGE_KEY = 'PSecwid__2PScart';
-
   private readonly cartConverter: CartConverter;
+
+  private readonly localStorageCartKey: string;
 
   private readonly defaultStoreLocationPath: string;
 
-  constructor(storeLocationPath?: string) {
+  constructor(storeId: number, storeLocationPath?: string) {
+    this.localStorageCartKey = this.getCartKey(storeId);
     this.defaultStoreLocationPath = storeLocationPath
       ? this.unifyStoreLocationPath(storeLocationPath)
       : this.DEFAULT_STORE_LOCATION_PATH;
@@ -29,7 +30,7 @@ class CartService {
     if (!window || !window.localStorage) {
       return this.createEmptyCartPromise();
     }
-    const cartRecord = window.localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    const cartRecord = window.localStorage.getItem(this.localStorageCartKey);
     if (cartRecord == null) {
       return this.createEmptyCartPromise();
     }
@@ -54,7 +55,7 @@ class CartService {
     const effectiveStoreLocationPath = storeLocationPath
       ? this.unifyStoreLocationPath(storeLocationPath)
       : this.defaultStoreLocationPath;
-    window.location.href = `${window.location.origin}/${effectiveStoreLocationPath}/cart`;
+    window.location.href = `${window.location.origin}/${effectiveStoreLocationPath}#!/~/cart`;
   }
 
   /**
@@ -63,6 +64,10 @@ class CartService {
    */
   private unifyStoreLocationPath(storeLocationPath: string): string {
     return storeLocationPath.replace(/(^\/)|(\/$)/g, '');
+  }
+
+  private getCartKey(storeId: number) {
+    return `PSecwid__${storeId}PScart`;
   }
 
   private createCartPromise(cart: Cart): Promise<Cart> {
