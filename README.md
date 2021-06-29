@@ -49,13 +49,13 @@ Cart model in result object:
     "productsQuantity": 1,
     "items": [
         {
-            "quantity": 1,
             "product": {
                 "price": 99.99,
                 "name": "Example",
                 "id": 1000001,
-                "sku"": '00001'
-            }
+                "sku": "00001"
+            },
+            "quantity": 1
         }
     ]
 }
