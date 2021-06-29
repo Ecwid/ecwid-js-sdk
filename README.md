@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://ecwid.com">
+    <img src="/img/logo.png"></a>
+</p>
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Ecwid Ecommerce SDK
@@ -36,6 +41,24 @@ const ecommerce = new Ecommerce({
 const cart = ecommerce.cart.get()
 	.then((result) => console.log(result))
 	.catch((error) => console.err(error))
+```
+Cart model in result object:
+```json
+{
+    "cartId": "XXXXXXX-XXXXXX-XXXXXX-XXXX",
+    "productsQuantity": 1,
+    "items": [
+        {
+            "quantity": 1,
+            "product": {
+                "price": 99.99,
+                "name": "Example",
+                "id": 1000001,
+                "sku"": '00001'
+            }
+        }
+    ]
+}
 ```
 
 #### Navigate to checkout page with current cart data
