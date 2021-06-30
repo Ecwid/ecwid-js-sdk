@@ -1,0 +1,35 @@
+{
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/better-docs/typescript"
+  ],
+  "source": {
+    "include": ["src"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$"
+  },
+  "sourceType": "module",
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "template": "node_modules/better-docs",
+    "readme": "README.md"
+  },
+  "tags": {
+    "allowUnknownTags": ["optional"]
+  },
+  "templates": {
+    "cleverLinks": true,
+    "search": true,
+    "better-docs": {
+      "name": "Ecwid Ecommerce SDK",
+      "title": "Ecwid Ecommerce SDK",
+      "hideGenerator": true,
+      "navLinks": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/Ecwid/ecwid-js-sdk"
+        }
+      ]
+    }
+  }
+}
