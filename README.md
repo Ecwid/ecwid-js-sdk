@@ -1,5 +1,9 @@
 [![Ecwid](https://github.com/Ecwid/ecwid-js-sdk/blob/main/img/logo.png?raw=true)](https://ecwid.com)
 
+[![build](https://github.com/Ecwid/ecwid-js-sdk/actions/workflows/build.yml/badge.svg)](https://github.com/Ecwid/ecwid-js-sdk/actions/workflows/build.yml)
+[![npm (scoped)](https://img.shields.io/npm/v/@ecwid/sdk)](https://www.npmjs.com/package/@ecwid/sdk)
+[![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@ecwid/sdk)](https://www.npmjs.com/package/@ecwid/sdk)
+[![codecov](https://codecov.io/gh/Ecwid/ecwid-js-sdk/branch/main/graph/badge.svg?token=Y972AFJMBM)](https://codecov.io/gh/Ecwid/ecwid-js-sdk)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Ecwid Ecommerce SDK
