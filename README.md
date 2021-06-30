@@ -1,7 +1,4 @@
-<p align="center">
-  <a href="https://ecwid.com">
-    <img src="/img/logo.png"></a>
-</p>
+[![Ecwid](img/logo.png)](https://ecwid.com)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
