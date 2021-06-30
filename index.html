@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecwid Ecommerce SDK Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Ecwid Ecommerce SDK</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/Ecwid/ecwid-js-sdk"
+                        >
+                            GitHub
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CartService.html">CartService</a></li><li><a href="Ecommerce.html">Ecommerce</a></li></ul><h3>Interfaces</h3><ul><li><a href="Cart.html">Cart</a></li><li><a href="CartItem.html">CartItem</a></li><li><a href="Product.html">Product</a></li><li><a href="StoreOptions.html">StoreOptions</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p align="center">
+  <a href="https://ecwid.com">
+    <img src="/img/logo.png"></a>
+</p>
+<p><a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a></p>
+<h1>Ecwid Ecommerce SDK</h1>
+<p>The Ecwid widget significantly slows down page speed of the sites on which it is installed. For many of our partners page speed is a crutial competitive factor. Existing <a href="https://api-docs.ecwid.com/reference/overview">Storefront JavaScript API</a> requires the whole Ecwid widget loaded to be used and does not provide the ability to invoke operations in 'headless' mode.</p>
+<p>Ecwid Ecommerce SDK by <a href="https://www.ecwid.com/">Ecwid</a> is a lightweight JavaScript library which does not require Ecwid widget for interacting with Ecwid API to manage online store data.</p>
+<h2>Installation</h2>
+<h3>NPM</h3>
+<p>Make sure you have <a href="https://www.npmjs.com/">npm</a> installed.</p>
+<pre class="prettyprint source lang-bash"><code>npm install @ecwid/sdk
+</code></pre>
+<h2>Usage</h2>
+<h3>SDK iniialization</h3>
+<pre class="prettyprint source lang-javascript"><code>import Ecommerce from &quot;@ecwid/sdk&quot;;
+
+const ecommerce = new Ecommerce({
+	storeId: 1002,
+	storeLocationPath: '/store' // optional
+});
+</code></pre>
+<h3>Cart operations</h3>
+<h4>Get cart data in current store</h4>
+<pre class="prettyprint source lang-javascript"><code>const cart = ecommerce.cart.get()
+	.then((result) => console.log(result))
+	.catch((error) => console.err(error))
+</code></pre>
+<p>Cart model in result object:</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;cartId&quot;: &quot;XXXXXXX-XXXXXX-XXXXXX-XXXX&quot;,
+    &quot;productsQuantity&quot;: 1,
+    &quot;items&quot;: [
+        {
+            &quot;product&quot;: {
+                &quot;price&quot;: 99.99,
+                &quot;name&quot;: &quot;Example&quot;,
+                &quot;id&quot;: 1000001,
+                &quot;sku&quot;: &quot;00001&quot;
+            },
+            &quot;quantity&quot;: 1
+        }
+    ]
+}
+</code></pre>
+<h4>Navigate to checkout page with current cart data</h4>
+<pre class="prettyprint source lang-javascript"><code>ecommerce.cart.goToCheckout();
+</code></pre>
+<h2>Development</h2>
+<h3>Run tests</h3>
+<pre class="prettyprint source lang-bash"><code>npm run test
+</code></pre>
+<h2>Roadmap</h2>
+<p>In future releases SDK will be able to manage:</p>
+<ul>
+<li>products and categories data;</li>
+<li>cart data (extended);</li>
+<li>customers data;</li>
+<li>storefront pages;</li>
+<li>storefront appearance.</li>
+</ul>
+<h2>License</h2>
+<p>This project is <a href="LICENSE">Apache2.0</a> licensed.</p></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>
