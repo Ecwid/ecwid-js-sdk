@@ -1,4 +1,4 @@
-[![Ecwid](https://github.com/Ecwid/ecwid-js-sdk/blob/main/img/logo.png)](https://ecwid.com)
+[![Ecwid](https://github.com/Ecwid/ecwid-js-sdk/blob/main/img/logo.png?raw=true)](https://ecwid.com)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
