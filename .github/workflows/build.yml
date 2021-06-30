@@ -13,12 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
+    - name: Check out
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run build --if-present
-    - run: npm test
+
+    - name: NPM install
+      run: npm ci
+
+    - name: Run linter
+      run: npm run lint
+
+    - name: Build library
+      run: npm run build --if-present
+
+    - name: Unit tests
+      run: npm test

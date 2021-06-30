@@ -1,0 +1,29 @@
+# This workflow will generate API docs and publish it to GitHub pages.
+name: Publish docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    - name: Generate API docs
+      run: npm run doc
+
+    - name: Publish API docs to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.PAGES_ACCESS_TOKEN }}
+        publish_dir: ./docs
