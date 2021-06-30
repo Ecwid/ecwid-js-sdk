@@ -1,5 +1,5 @@
 # This workflow will do a clean install of node dependencies, run npm lint, build the source code and run tests.
-name: Build and publish API docs
+name: Build, test and publish API docs
 
 on:
   push:
