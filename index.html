@@ -133,7 +133,7 @@
 <pre class="prettyprint source lang-bash"><code>npm install @ecwid/sdk
 </code></pre>
 <h2>Usage</h2>
-<h3>SDK iniialization</h3>
+<h3>SDK initialization</h3>
 <pre class="prettyprint source lang-javascript"><code>import Ecommerce from &quot;@ecwid/sdk&quot;;
 
 const ecommerce = new Ecommerce({
@@ -145,7 +145,7 @@ const ecommerce = new Ecommerce({
 <h4>Get cart data in current store</h4>
 <pre class="prettyprint source lang-javascript"><code>const cart = ecommerce.cart.get()
 	.then((result) => console.log(result))
-	.catch((error) => console.err(error))
+	.catch((error) => console.error(error))
 </code></pre>
 <p>Cart model in result object:</p>
 <pre class="prettyprint source lang-json"><code>{
