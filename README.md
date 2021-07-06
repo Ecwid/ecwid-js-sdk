@@ -25,7 +25,7 @@ npm install @ecwid/sdk
 
 ## Usage
 
-### SDK iniialization
+### SDK initialization
 
 ```javascript
 import Ecommerce from "@ecwid/sdk";
@@ -43,7 +43,7 @@ const ecommerce = new Ecommerce({
 ```javascript
 const cart = ecommerce.cart.get()
 	.then((result) => console.log(result))
-	.catch((error) => console.err(error))
+	.catch((error) => console.error(error))
 ```
 Cart model in result object:
 ```json

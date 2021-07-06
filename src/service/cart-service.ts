@@ -27,7 +27,7 @@ class CartService {
    * @returns {Promise<Cart>} Promise of current {@link Cart} data.
    */
   get(): Promise<Cart> {
-    if (!window || !window.localStorage) {
+    if (typeof window === 'undefined' || !window || !window.localStorage) {
       return this.createEmptyCartPromise();
     }
     const cartRecord = window.localStorage.getItem(this.localStorageCartKey);
@@ -49,7 +49,7 @@ class CartService {
    * storeLocationPath, default path '/store' will be used for checkout URL composition.
    */
   goToCheckout(storeLocationPath?: string) {
-    if (!window || !window.location) {
+    if (typeof window === 'undefined' || !window || !window.location) {
       return;
     }
     const effectiveStoreLocationPath = storeLocationPath
