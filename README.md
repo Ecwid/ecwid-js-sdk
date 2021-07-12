@@ -8,9 +8,7 @@
 
 # Ecwid Ecommerce SDK
 
-The Ecwid widget significantly slows down page speed of the sites on which it is installed. For many of our partners page speed is a crutial competitive factor. Existing [Storefront JavaScript API](https://api-docs.ecwid.com/reference/overview) requires the whole Ecwid widget loaded to be used and does not provide the ability to invoke operations in 'headless' mode.
-
-Ecwid Ecommerce SDK by [Ecwid](https://www.ecwid.com/) is a lightweight JavaScript library which does not require Ecwid widget for interacting with Ecwid API to manage online store data. 
+Ecwid Ecommerce SDK allows you to add Ecwid buying experience to any platform or application: Site Builder, POS, Website, App, etc. It is a lightweight JavaScript library which does not require Ecwid widget for interacting with Ecwid API to manage online store data. It is taking on Storefront JavaScript API functions and allows you to optimize your integrations with Ecwid for performance and flexibility.
 
 For full API documentation, visit [API docs page](https://ecwid.github.io/ecwid-js-sdk/). 
 
