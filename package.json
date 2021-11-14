@@ -45,7 +45,7 @@
     "jsdoc": "^3.6.7",
     "rollup": "^2.57.0",
     "rollup-plugin-dts": "^3.0.2",
-    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5"
