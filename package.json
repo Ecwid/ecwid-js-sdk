@@ -49,5 +49,9 @@
     "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.4"
+  },
+  "engines": {
+    "node": "^v16.13.0",
+    "npm": "^8.1.0"
   }
 }
