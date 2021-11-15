@@ -1,6 +1,6 @@
 {
   "name": "@ecwid/sdk",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Lightweight SDK library to access Ecwid API functions.",
   "author": "Ecwid",
   "license": "Apache-2.0",
@@ -32,22 +32,26 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^27.0.2",
     "@types/jest-when": "^2.7.3",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.2.0",
     "better-docs": "^2.3.2",
-    "eslint": "^7.28.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
-    "jest": "^27.0.4",
+    "jest": "^27.1.0",
     "jest-when": "^3.3.1",
     "jsdoc": "^3.6.7",
-    "rollup": "^2.52.3",
+    "rollup": "^2.57.0",
     "rollup-plugin-dts": "^3.0.2",
-    "rollup-plugin-uglify": "^6.0.4",
-    "ts-jest": "^27.0.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.3",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.5"
+  },
+  "engines": {
+    "node": "^v16.13.0",
+    "npm": "^8.1.0"
   }
 }

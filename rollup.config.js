@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
-import { uglify } from 'rollup-plugin-uglify'
-import dts from "rollup-plugin-dts";
+import { terser } from 'rollup-plugin-terser';
+import dts from 'rollup-plugin-dts';
 
 const config = [
   {
@@ -9,20 +9,20 @@ const config = [
       name: 'ecommerce',
       file: 'dist/ecommerce.js',
       format: 'umd',
-      compact: true
+      compact: true,
     },
     plugins: [
       typescript(),
-      uglify()
-    ]
+      terser(),
+    ],
   },
   {
-    input: "./build/types/ecommerce.d.ts",
-    output: [{ file: "dist/ecommerce.d.ts", format: "es" }],
+    input: './build/types/ecommerce.d.ts',
+    output: [{ file: 'dist/ecommerce.d.ts', format: 'es' }],
     plugins: [
-      dts()
-    ]
-  }
+      dts(),
+    ],
+  },
 ];
 
 export default config;
