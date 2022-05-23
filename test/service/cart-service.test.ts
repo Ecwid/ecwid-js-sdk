@@ -1,4 +1,3 @@
-import { mocked } from 'ts-jest/utils';
 import { when } from 'jest-when';
 import CartConverter from '../../src/converter/cart-converter';
 import CartService from '../../src/service/cart-service';
@@ -119,7 +118,7 @@ describe('Get cart tests', () => {
 
     const cartService = new CartService(1002);
     const cartPromise = cartService.get();
-    mocked(CartConverter, true).mockClear();
+    jest.mocked(CartConverter, true).mockClear();
     return cartPromise.then((cart) => {
       expect(cart).toBe(expectedCart);
     });
