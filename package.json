@@ -1,6 +1,6 @@
 {
   "name": "@ecwid/sdk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Lightweight SDK library to access Ecwid API functions.",
   "author": "Ecwid",
   "license": "Apache-2.0",
@@ -26,10 +26,6 @@
     "prepublishOnly": "npm run lint && npm test && npm run build",
     "doc": "jsdoc -c jsdoc.json"
   },
-  "resolutions": {
-    "pug": "^3.0.1",
-    "serialize-javascript": "^3.1.0"
-  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/jest": "^27.0.2",
@@ -51,7 +47,7 @@
     "typescript": "^4.3.5"
   },
   "engines": {
-    "node": "^v16.13.0",
-    "npm": "^8.1.0"
+    "node": "^18.3.0",
+    "npm": "^8.5.5"
   }
 }
