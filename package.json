@@ -1,6 +1,6 @@
 {
   "name": "@ecwid/sdk",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Lightweight SDK library to access Ecwid API functions.",
   "author": "Ecwid",
   "license": "Apache-2.0",

@@ -1,5 +1,6 @@
 import { Cart } from '../type/cart';
 import CartConverter from '../converter/cart-converter';
+import CheckoutConverter from '../converter/checkout-converter';
 
 /**
  * Ecommerce SDK cart service. Contains cart operations.
@@ -10,16 +11,22 @@ class CartService {
 
   private readonly cartConverter: CartConverter;
 
+  private readonly checkoutConverter: CheckoutConverter;
+
   private readonly localStorageCartKey: string;
+
+  private readonly localStorageCheckoutKey: string;
 
   private readonly defaultStoreLocationPath: string;
 
   constructor(storeId: number, storeLocationPath?: string) {
     this.localStorageCartKey = this.getCartKey(storeId);
+    this.localStorageCheckoutKey = this.getCheckoutKey(storeId);
     this.defaultStoreLocationPath = storeLocationPath
       ? this.unifyStoreLocationPath(storeLocationPath)
       : this.DEFAULT_STORE_LOCATION_PATH;
     this.cartConverter = new CartConverter();
+    this.checkoutConverter = new CheckoutConverter();
   }
 
   /**
@@ -30,6 +37,13 @@ class CartService {
     if (typeof window === 'undefined' || !window || !window.localStorage) {
       return this.createEmptyCartPromise();
     }
+    const checkoutRecord = window.localStorage.getItem(this.localStorageCheckoutKey);
+    if (checkoutRecord != null) {
+      const localStorageCheckout = JSON.parse(checkoutRecord);
+      const cart = this.checkoutConverter.toCart(localStorageCheckout);
+      return this.createCartPromise(cart);
+    }
+
     const cartRecord = window.localStorage.getItem(this.localStorageCartKey);
     if (cartRecord == null) {
       return this.createEmptyCartPromise();
@@ -68,6 +82,10 @@ class CartService {
 
   private getCartKey(storeId: number) {
     return `PSecwid__${storeId}PScart`;
+  }
+
+  private getCheckoutKey(storeId: number) {
+    return `ec-${storeId}-checkout`;
   }
 
   private createCartPromise(cart: Cart): Promise<Cart> {
