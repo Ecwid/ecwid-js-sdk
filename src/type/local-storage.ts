@@ -14,3 +14,8 @@ export interface LocalStorageCart {
   readonly cartId: string;
   readonly order: LocalStorageOrder;
 }
+
+export interface LocalStorageCheckout {
+  readonly id?: string;
+  readonly itemsCount: number;
+}
