@@ -122,4 +122,21 @@ describe('Get cart tests', () => {
       expect(cart).toBe(expectedCart);
     });
   });
+
+  test('Get cart from checkout info storage', () => {
+    const localStorageCheckout = {
+      id: 'GkpzhWnTX2gBvgBQ',
+      itemsCount: 4,
+    };
+    global.localStorage.setItem('ec-1002-checkout', JSON.stringify(localStorageCheckout));
+
+    const cartService = new CartService(1002);
+    cartService.get().then((cart) => {
+      expect(cart).toEqual({
+        cartId: '',
+        items: [],
+        productsQuantity: 4,
+      });
+    });
+  });
 });

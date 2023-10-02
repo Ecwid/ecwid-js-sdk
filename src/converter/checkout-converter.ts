@@ -6,7 +6,7 @@ export default class CheckoutConverter {
     return {
       cartId: '',
       items: [],
-      productsQuantity: localStorageCart.itemsCount ?? 0,
+      productsQuantity: localStorageCart.itemsCount,
     };
   }
 }
