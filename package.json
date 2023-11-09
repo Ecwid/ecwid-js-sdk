@@ -1,6 +1,6 @@
 {
   "name": "@ecwid/sdk",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Lightweight SDK library to access Ecwid API functions.",
   "author": "Ecwid",
   "license": "Apache-2.0",
@@ -48,6 +48,6 @@
   },
   "engines": {
     "node": "18 || 20",
-    "npm": "^9.5.1"
+    "npm": "9 || 10"
   }
 }
